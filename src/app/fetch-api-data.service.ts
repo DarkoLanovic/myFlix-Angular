@@ -7,6 +7,7 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://visionary-film-club.herokuapp.com/';
+
 @Injectable({
   providedIn: 'root'
 })
