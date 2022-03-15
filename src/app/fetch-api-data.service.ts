@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, catchError } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import { map } from 'rxjs/operators';
-import { useDebugValue } from 'react';
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://visionary-film-club.herokuapp.com/';
@@ -12,7 +11,7 @@ const apiUrl = 'https://visionary-film-club.herokuapp.com/';
   providedIn: 'root'
 })
 
-export class UserRegistrationService {
+export default class UserRegistrationService {
 
   // Inject the HttpClient module to the constructor params
  // This will provide HttpClient to the entire class, making it available via this.http

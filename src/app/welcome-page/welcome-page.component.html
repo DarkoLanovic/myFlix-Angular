@@ -1,0 +1,26 @@
+<div
+  class="main-page"
+  style="background-image: url('assets//movie-background.jpg')"
+>
+  <mat-card>
+    <mat-card-content>Welcome to myFlix!</mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        Sign Up
+      </button>
+      <button
+        mat-raised-button
+        (click)="openUserLoginDialog()"
+        color="primary"
+        style="margin-right: 10px"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
