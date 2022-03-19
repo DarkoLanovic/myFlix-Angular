@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Edit your data
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newData.Username" placeholder="Username" value={{data.username}} type="text"
+          name="Username" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newData.Password" placeholder="Password" type="password" name="Password" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newData.Email" placeholder="Email" value={{data.email}} type="email" name="Email"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="newData.Birthday" placeholder="Birthday" value={{data.birthday}} type="date"
+          name="Birthday">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [mat-dialog-close]="true" color="primary">Discard</button>
+    <button mat-raised-button (click)="editUser()" color="primary">Save changes</button>
+  </mat-card-actions>
+</mat-card>

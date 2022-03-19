@@ -1,0 +1,75 @@
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 36px;
+  border-bottom: 1px solid blue;
+  margin-bottom: 16px;
+}
+
+.profile-page {
+  padding: 16px 24px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.favorites-list {
+  display: flex;
+  column-gap: 12px;
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.card-list {
+  flex-shrink: 0;
+  display: grid;
+  grid-template:
+  [row1-start] "img"  70% [row1-end]
+  [row2-start] "actions" 10%[row2-end]
+  [row3-start] "title" 20% [row3-end];
+  width: 180px;
+
+  .title {
+    grid-area: title;
+    line-height: 1.2;
+    align-self: start;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: 16px;
+    grid-area: actions;
+    align-self: start;
+    padding-top: 8px;
+  }
+
+  img {
+    grid-area: img;
+    align-self: start;
+    object-fit: contain;
+    // align-self: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
+}
+
+.mat-icon:hover {
+  cursor: pointer;
+}
+
+.user-data {
+padding: 36px 0;
+width: 300px;
+
+  .mat-card-title {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+}
+
+

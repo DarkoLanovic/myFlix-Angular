@@ -1,10 +1,7 @@
-/* 
-Any features of Material Design that was decided to be useed in application 
-will need to be included in this file
-*/
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,53 +14,54 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
-
-
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { RouterModule, Routes } from '@angular/router';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-
+import { MatIconModule } from '@angular/material/icon';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { DescriptionCardComponent } from './description-card/description-card.component';
+import { DirectorCardComponent } from './director-card/director-card.component';
+import { GenreCardComponent } from './genre-card/genre-card.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { RemoveUserComponent } from './remove-user/remove-user.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: UserLoginFormComponent },
-  { path: 'registration', component: UserRegistrationFormComponent },
   { path: 'welcome', component: WelcomePageComponent },
-  // { path: 'movies', component: MovieCardComponent },
-  // { path: 'users', component: UserProfileComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: ProfileViewComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
-];
-
-/*
-The 'HttpClientModule' is a simplified API for Angular applications 
-that makes it possible for the client app 
-to communicate with the API or server-side
-*/
-
-// Main module
+]
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
     UserLoginFormComponent,
-    WelcomePageComponent
+    MovieCardComponent,
+    WelcomePageComponent,
+    ProfileViewComponent,
+    DescriptionCardComponent,
+    DirectorCardComponent,
+    GenreCardComponent,
+    UserEditComponent,
+    RemoveUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatDialogModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatSnackBarModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

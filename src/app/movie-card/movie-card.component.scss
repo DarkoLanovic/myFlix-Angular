@@ -1,0 +1,60 @@
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 36px;
+  border-bottom: 1px solid blue;
+  margin-bottom: 16px;
+}
+
+.movie-page {
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.favorites-list {
+  display: flex;
+  column-gap: 12px;
+  padding-top: 32px;
+  overflow-x: auto;
+  padding-top: 0;
+}
+
+.mat-card {
+  display: grid;
+  grid-template:
+    [row1-start] "img img"  auto [row1-end]
+    [row2-start] "title title" auto [row2-end]
+    [row3-start] "actions actions" 40px[row3-end]
+    [row4-start] "actions actions" 40px [row4-end]
+    / 90px 90px;
+  }
+
+.mat-card-title {
+  grid-area: title;
+  line-height: 1.2;
+}
+
+.mat-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 16px;
+  grid-area: actions;
+}
+
+img {
+  grid-area: img;
+  object-fit: contain;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.fav-icon:hover {
+  cursor: pointer;
+}

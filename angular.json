@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "myFlix-Angular-client": {
+    "MovieBase-Angular-Client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-flix-angular-client",
+            "outputPath": "dist/movie-base-angular-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "myFlix-Angular-client:build:production"
+              "browserTarget": "MovieBase-Angular-Client:build:production"
             },
             "development": {
-              "browserTarget": "myFlix-Angular-client:build:development"
+              "browserTarget": "MovieBase-Angular-Client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "myFlix-Angular-client:build"
+            "browserTarget": "MovieBase-Angular-Client:build"
           }
         },
         "test": {
@@ -103,9 +103,12 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
-  "defaultProject": "myFlix-Angular-client"
+  "defaultProject": "MovieBase-Angular-Client"
 }

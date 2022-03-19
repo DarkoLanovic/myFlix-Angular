@@ -1,0 +1,46 @@
+<header>
+  <button (click)="backToMovies()" mat-raised-button color="primary">Back</button>
+  <button (click)="logOut()" mat-raised-button color="primary">Log out</button>
+</header>
+
+<div class="profile-page">
+
+  <h1>Your favorite movies:</h1>
+
+  <div class="favorites-list">
+    <h3 *ngIf="favsEmpty">Looks like you have not added any titles to your favorites.
+    </h3>
+    <mat-card class="card-list" *ngFor="let fav of this.currentUser.Favorites; let i = index;">
+      <img src="{{fav.ImagePath}} ">
+      <mat-card-actions class="actions">
+        <mat-icon (click)="removeFromFavs(fav._id)" color="primary">favorite</mat-icon>
+      </mat-card-actions>
+      <mat-card-title class="title">{{fav.Title}}</mat-card-title>
+    </mat-card>
+  </div>
+
+  <div class="user-data">
+    <mat-card>
+      <mat-card-title>
+        Your data:
+      </mat-card-title>
+      <mat-card-content>
+        <p>Username: {{this.currentUser.Username}}</p>
+      </mat-card-content>
+      <mat-card-content>
+        <p>Email: {{this.currentUser.Email}}</p>
+      </mat-card-content>
+      <mat-card-content>
+        <p>Birthdate: {{this.currentUser.Birthday | date:'longDate'}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="openRemoveUserDialog()" color="warn">Remove account</button>
+        <button mat-raised-button color="primary"
+          (click)="openUserEditDialog(currentUser.Username, currentUser.Password, currentUser.Email, currentUser.Birthday)">Edit
+          data</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+</div>

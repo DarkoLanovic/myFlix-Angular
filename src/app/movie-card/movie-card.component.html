@@ -1,0 +1,31 @@
+<header>
+  <button (click)="openProfile()" mat-raised-button color="primary">Profile</button>
+  <button (click)="logOut()" mat-raised-button color="primary">Log out</button>
+</header>
+
+<div class="movie-page">
+
+  <h1>Welcome, {{this.user.Username}}</h1>
+
+  <div class="favorites-list">
+    <mat-card *ngFor="let movie of movies; let i = index;">
+      <img src={{movie.ImagePath}} alt={{movie.Title}} />
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+      <mat-card-actions>
+        <button class="director" mat-button
+          (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Death)"
+          color="primary">Director</button>
+        <button class="genre" mat-button (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+          color="primary">Genre</button>
+        <button class="description" mat-raised-button (click)="openDescriptionDialog(movie.Title, movie.Description)"
+          color="primary">Description</button>
+        <!-- <mat-icon (click)="toggleFavs(movie._id)" [color]="toggleHeart(movie._id)">favorite</mat-icon> -->
+        <mat-icon class="fav-icon" *ngIf="favCheck(movie._id)" (click)="toggleFavs(movie._id)" color="primary">favorite
+        </mat-icon>
+        <mat-icon class="fav-icon" *ngIf="!favCheck(movie._id)" (click)="toggleFavs(movie._id)" color="primary">
+          favorite_border
+        </mat-icon>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
