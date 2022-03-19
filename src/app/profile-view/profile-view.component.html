@@ -1,0 +1,57 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <h2 style="padding: 15px 0 0 15px">Hello {{ user?.Username }}!</h2>
+  <div style="display: flex">
+    <div *ngFor="let movie of favs" style="display: flex; margin: 15px">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ movie.Title }}</mat-card-title>
+          <mat-card-subtitle
+            >Directed by: {{ movie.Director.Name }}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <img
+            src="{{ movie.ImagePath }}"
+            alt="{{ movie.Title }}"
+            style="height: 325px"
+          />
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            class="profile-btn"
+            mat-raised-button
+            (click)="removeFav(movie._id)"
+            style="margin-right: 10px"
+          >
+            Remove Fav
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div style="display: flex; margin: 15px">
+    <mat-card class="user-info">
+      <mat-card-header>
+        <mat-card-title>Your Profile Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h3><b>Username: </b>{{ this.user.Username }}</h3>
+        <h3><b>Email: </b>{{ user.Email }}</h3>
+        <h3><b>Birthday: </b>{{ user.Birthday | date: "mediumDate" }}</h3>
+        <br />
+        <button
+          class="profile-btn"
+          mat-raised-button
+          (click)="openEditUserProfile()"
+          style="margin-right: 10px"
+        >
+          Edit Profile
+        </button>
+        <button class="profile-btn" mat-raised-button (click)="deleteProfile()">
+          Delete Profile
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

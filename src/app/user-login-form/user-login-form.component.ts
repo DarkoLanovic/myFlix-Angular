@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import FetchApiDataService from '../fetch-api-data.service';
+import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,17 +13,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class UserLoginFormComponent implements OnInit {
   
-   //get input info and store it in userCredentials
+   //get input info and store it in userData
    
-  @Input() userCredentials = { Username: '', Password: '' };
+  @Input() userData= { Username: '', Password: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
-  ) {}
+    public router: Router
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * Login user via input field by using API endpoint
@@ -30,23 +32,28 @@ export class UserLoginFormComponent implements OnInit {
    * @function userLogin
    * @param loginData {object}
    * @return users data in json format
+   * Once logged in, re-route to movies page 
    */
   loginUser(): void {
-    this.fetchApiData.userLogin(this.userCredentials).subscribe(
-      (response: any) => {
-        console.log(response);
-        // This will close the modal on success
-        this.dialogRef.close(); 
-        this.snackBar.open('You are logged in', 'OK', {
-          duration: 2000,
-        });
+    this.fetchApiData.userLogin(this.userData).subscribe((response) => {
+      // This will close the modal on success
+      this.dialogRef.close();
+      console.log(response);
+      localStorage.setItem('username', response.user.Username);
+      localStorage.setItem('token', response.token);
+     
+      this.snackBar.open('Successfully Login ✅', 'OK', {
+        duration: 2000,
+      });
 
-      },
-      (response: any) => {
+      this.router.navigate(['movies']);  //Once the Login was successful then navigate to "movies" change the route to "/movies"
+      
+    }, 
+      (response) => {
+        console.log(response);
         this.snackBar.open(response, 'OK', {
           duration: 2000,
-        });
-      }
-    );
+      });
+    });
   }
 }

@@ -1,16 +1,10 @@
-<!--
-     Wiring up what you defined in the component’s file (the TypeScript file) 
-     with some HTML, with the help of Angular's directives and binding syntax 
- -->
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Register</mat-card-title>
+    <mat-card-title>Edit Profile</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
-      <mat-form-field>
-        <!-- the "ngModel" directive that binds the inputs 
-             by the user to the userData object -->
+      <mat-form-field style="margin-right: 10px">
         <input
           matInput
           [(ngModel)]="userData.Username"
@@ -30,7 +24,7 @@
           required
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field style="margin-right: 10px">
         <input
           matInput
           [(ngModel)]="userData.Email"
@@ -52,8 +46,8 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
-      Register
+    <button mat-raised-button (click)="editUserProfile()" color="primary">
+      Update
     </button>
   </mat-card-actions>
 </mat-card>

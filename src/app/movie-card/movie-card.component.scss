@@ -1,0 +1,38 @@
+.container {
+    background-color: #1A2B50;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .movie-card {
+    height: fit-content;
+    max-width: 260px;
+    padding-top: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    background-color: #84AFDD;
+    margin: 0 5px 5px 5px !important;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center !important;
+    padding-top: 0px;
+  }
+  
+  .movie-img {
+    display: block;
+    margin: auto;
+  }
+  
+  .heart {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .heart-icon {
+    font-size: 30px;
+    margin: 5px 0 10px 0;
+  }
