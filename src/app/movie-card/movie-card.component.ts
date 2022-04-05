@@ -129,6 +129,7 @@ export class MovieCardComponent implements OnInit {
   }
   
   toggleFavs(movieId: string): void {
+    console.log(movieId);
     if (this.currentFavs.filter(function (e: any) { return e._id === movieId; }).length > 0) {
       this.removeFromFavs(movieId);
       this.isInFavs = false;
@@ -144,6 +145,7 @@ export class MovieCardComponent implements OnInit {
    * @returns 
    */
      isFavorited(id: string): boolean {
+       console.log(this.favs);
       return this.favs.includes(id);
     }
 
@@ -160,6 +162,7 @@ export class MovieCardComponent implements OnInit {
   
 
   addToFavs(movieId: string): void {
+    console.log(movieId)
     //checking if the title is already in favs
     if (this.currentFavs.filter(function (e: any) { return e._id === movieId; }).length > 0) {
       this.snackBar.open('Already in your favs', 'OK', { duration: 2000 });

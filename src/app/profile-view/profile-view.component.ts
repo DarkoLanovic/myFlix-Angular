@@ -13,7 +13,7 @@ import { FetchApiDataService }  from '../fetch-api-data.service';
 })
 
 export class ProfileViewComponent implements OnInit {
-  user: any = localStorage.getItem('usrname');
+  user: any = localStorage.getItem('username');
   favs: any = null ;
 
   constructor(
@@ -21,7 +21,9 @@ export class ProfileViewComponent implements OnInit {
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     public router: Router
-  ) { }
+  ) {
+    
+   }
 
   /**
    * Gets user profile when the page is opened
