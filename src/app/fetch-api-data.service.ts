@@ -5,11 +5,14 @@ import { catchError } from 'rxjs/operators'
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+
 // Declaring the api url that will provide data for the client app
 const apiUrl = 'https://visionary-film-club.herokuapp.com/';
 
+
 // Get token from local storage for requests
 const token = localStorage.getItem('token');
+
 
 // Get username from localStorage for URLs
 const username = localStorage.getItem('username');
